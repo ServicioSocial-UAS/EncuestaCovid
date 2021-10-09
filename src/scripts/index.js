@@ -206,14 +206,6 @@ function sendInputAlert(element, message) {
 }
 
 
-
-
-
-
-
-
-
-
 function getDocumentElement(elementId) {
     return document.getElementById(elementId)
 }
