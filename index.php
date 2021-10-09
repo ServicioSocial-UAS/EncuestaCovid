@@ -1,10 +1,11 @@
-<!--
-<?php
 
+<?php
+include "./Alert/alert.php";
 include "abrir_conexion.php";
 
 $Mensaje_Alerta = "";
 
+alert("asdads");
 if (isset($_POST["btnAgregar"])) {
 
 
@@ -25,9 +26,8 @@ if (isset($_POST["btnAgregar"])) {
         $Numero = $_POST["Numero"];
         $Especificaciones = $_POST["textarea-especificaciones"];
 
-        if ($Numero_Cuenta=" " || $Nombre=" " || $Ape1=" " || $Edad=" " || $Correo=" " || $Tel1=" " || $Colonia=" " || $Calle=" " || $Numero=" "){
-        }elseif (!preg_match("/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/", $Nombre)) {
-        }else{
+
+        
             $Mensaje_Alerta="a";
 
             $sql = "SELECT * FROM tb_datopersonal WHERE Id_NumCuenta='$Numero_Cuenta'";
@@ -185,9 +185,9 @@ if (isset($_POST["btnAgregar"])) {
             }
         }
 
-}
+
 ?>
--->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,6 +201,8 @@ if (isset($_POST["btnAgregar"])) {
     <link rel="stylesheet" href="./src/styles/index.css">
     <link rel="stylesheet" href="./src/styles/header.css">
     <link rel="stylesheet" href="./src/styles/headermenu.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 </head>
 <body>
     <header>
@@ -229,39 +231,45 @@ if (isset($_POST["btnAgregar"])) {
                     <div class="fieldset-container">
                         <h2 class="subtitle" id="subtitle1">Datos personales</h2>
                             <div class="date-container">
+                                
 
-                                <div class ="label-style"><label>Número de cuenta: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Id_NumCuenta" id="Id_NumCuenta"><?php echo "$Mensaje_Alerta" ?>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">No. cuenta</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Id_NumCuenta" id="Id_NumCuenta" aria-describedby="basic-addon1">
                                 </div>
 
-                                <div class ="label-style"><label>Nombre: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Nombre" id="Nombre" value=""></div>
-
-                                <div class ="label-style"><label>Apellido paterno: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Ape_Pat" id="Ape_Pat" value=""></div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Nombre" id="Nombre" aria-describedby="basic-addon1">
+                                </div>
+                                  
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Apellido paterno</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Ape_Pat" id="Ape_Pat" aria-describedby="basic-addon1">
+                                </div>
                             
-                                <div class ="label-style"><label>Apellido materno: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Ape_Mat" id="Ape_Mat" value=""></div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Apellido materno</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Ape_Mat" id="Ape_Mat" aria-describedby="basic-addon1">
+                                </div>
 
-                                <div class ="label-style"><label>Sexo:</label></div>
-                                <div class="input-container"><select class="input-style" class="label-style" class="input-date" name="Sexo" id="Sexo" value="">
-                                    <option class="input-style">Hombre</option>
-                                    <option class="input-style">Mujer</option>
-                                    <option class="input-style">Indefinido</option>
+                                <div><select class="form-select" aria-label="Default select example" name="Sexo" id="Sexo">
+                                    <option>Hombre</option>
+                                    <option>Mujer</option>
+                                    <option>Indefinido</option>
                                 </select></div>
 
-                                <div class ="label-style"><label>Edad: </label></div>
-                                <div class="input-container"><input type="number" class="input-style" min="1" max="100" name="Edad" id="Edad" value=""></div>
-    
-                                <div class ="label-style"><label>Tipo:</label></div>
-                                <div class="input-container"><select class="input-style" class="label-style" class="input-date" name="Tipo" id="Tipo" value="">
-                                    <option  class="input-style">Estudiante</option>
-                                    <option  class="input-style">Personal</option>
+                                <div><div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Edad</span>
+                                    <input type="number" class="form-control" placeholder="" class="input-style" min="1" max="100" aria-label="Username" name="Edad" id="Edad" aria-describedby="basic-addon1">
+                                </div></div>
+                                
+                                <div><select class="form-select" aria-label="Default select example" name="Tipo" id="Tipo">
+                                    <option>Estudiante</option>
+                                    <option>Personal</option>
                                 </select></div>
 
-                                <div class ="label-style"><label>Unidad académica:</label></div>
-                                <div class="input-container"><select class="input-date" name="Unidad_Academica" id="Unidad_Academica" value="" style="max-width: 240px;">
-                                    
+                                <div><select class="form-select" aria-label="Default select example" name="Unidad_Academica" id="UnidadAcademica">
                                     <option>Escuela Preparatoria Valle del Carrizo</option>
                                     <option>Escuela Preparatoria Choix</option>
                                     <option>Escuela Preparatoria Choix. Extensión San Javier</option>
@@ -292,17 +300,20 @@ if (isset($_POST["btnAgregar"])) {
                                     <option>Facultad de Medicina. Extensión Los Mochis</option>
                                     <option>Facultad de Trabajo Social Los Mochis</option>
                                     <option>Facultad de Trabajo Social Los Mochis</option>
-                                    <option>Unidad Académica de Negocios</option>
-                                    <option>Servicio Social Universitario</option>
-                                    <option>Área administrativa (incluye Torre Académica)</option>
+                                    <option>Unidad Académica de Negocios - Personal</option>
+                                    <option>Servicio Social Universitario - Personal</option>
+                                    <option>Área administrativa (incluye Torre Académica) - Personal</option>
                                 </select></div>
-                                
 
-                                <div class ="label-style"><label>Carrera: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Carrera" id="Carrera" value=""></div>
+                                <div><div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Carrera</span>
+                                    <input type="text" class="form-control" placeholder="" class="input-style" aria-label="Username" name="Carrera" id="Carrera" aria-describedby="basic-addon1">
+                                </div></div>
 
-                                <div class ="label-style"><label>Grupo: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Grupo" id="Grupo" value=""></div>
+                                <div><div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Grupo</span>
+                                    <input type="text" class="form-control" placeholder="" class="input-style" min="1" max="100" aria-label="Username" name="Grupo" id="Grupo" aria-describedby="basic-addon1">
+                                </div></div>
     
                             </div>
 
@@ -313,26 +324,38 @@ if (isset($_POST["btnAgregar"])) {
                         <h2 class="subtitle">Contacto</h2>
 
                             <div class="contact-container">
-
-                                <div class="label-style"><label >Correo: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Correo" id="Correo"></div>
                                 
-                                <div class="label-style"><label>Teléfono celular: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Tel1" id="Tel1"></div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Correo</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Correo" id="Correo" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Teléfono celular</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Tel1" id="Tel1" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Teléfono casa</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Tel2" id="Tel2" aria-describedby="basic-addon1">
+                                </div>
+
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Colonia</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Colonia" id="Colonia" aria-describedby="basic-addon1">
+                                </div>
                                 
-                                <div class="label-style"><label>Teléfono Casa:</label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Tel2" id="Tel2"></div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Calle</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Calle" id="Calle" aria-describedby="basic-addon1">
+                                </div>
 
-                                <hr class="divider">
-                                
-                                <div class="label-style" ><label >Colonia: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Colonia" id="Colonia"></div>
-
-                                <div class="label-style"><label>Calle: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Calle" id="Calle"></div>
-
-                                <div class="label-style"><label>Número: </label></div>
-                                <div class="input-container"><input type="text" class="input-style" name="Numero" id="Numero" style="margin-bottom: -24px;"></div>        
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Número</span>
+                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Numero" id="Numero" aria-describedby="basic-addon1">
+                                </div>
+      
                                                             
                             </div>
 
@@ -408,7 +431,6 @@ if (isset($_POST["btnAgregar"])) {
             <div class="button-container"><button name="btnAgregar" id="btn-send">Enviar</button></div>
         </div>
     </form>
-
-    <script src="./scripts/index.js"></script>
+    <script src="./src/scripts/index.js"></script>
 </body>
 </html>
