@@ -9,6 +9,7 @@ html,body{
 }
 
 header {
+    z-index: 5000;
     position: fixed;
     top: 0;
     width: 100%;

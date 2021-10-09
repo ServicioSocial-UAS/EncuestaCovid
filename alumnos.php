@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./src/styles/headermenu.css">
     <link rel="stylesheet" href="./src/styles/empleados.css">
     <link rel="stylesheet" href="./src/styles/vermas.css">
-    
+   
 </head>
 <body>
     <header>

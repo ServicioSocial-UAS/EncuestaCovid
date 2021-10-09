@@ -21,8 +21,12 @@
 #subtitle1{
     margin-bottom: 8%;
 }
+
 .contact-container{
-    padding: 40px;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .label-style{
@@ -32,7 +36,7 @@
 
 
 
-#textarea-especificaciones, #h3-diseasetime{
+#h3-diseasetime{
     margin-bottom: 8px;
     margin-left: 40px;
 }
@@ -47,7 +51,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    max-width: 1280px;
+    max-width: 1120px;
     gap: 32px;
 }
 
@@ -86,8 +90,16 @@ fieldset{
     font-size: 1.5rem;
 }
 
+
+
 .combobox-div{
     margin-bottom: 6.5px;
+}
+
+.date-container{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 #date{
@@ -115,9 +127,6 @@ fieldset{
     margin-left: 16px;
 }
 
-.date-container{
-    margin-left: 40px;
-}
 
 .radiobutton-date{
 
@@ -130,7 +139,7 @@ fieldset{
     box-shadow: 0px 8px 8px #7B848A;
     background: #fff;
     transition: all 0.4s ease-in-out;
-    padding: 24px;
+    padding: 48px;
     
 }
 
