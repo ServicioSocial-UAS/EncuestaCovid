@@ -1,6 +1,6 @@
-<!--
-<?php
 
+<?php
+include "./Alert/alert.php";
 include "abrir_conexion.php";
 
 $Mensaje_Alerta = "";
@@ -25,9 +25,8 @@ if (isset($_POST["btnAgregar"])) {
         $Numero = $_POST["Numero"];
         $Especificaciones = $_POST["textarea-especificaciones"];
 
-        if ($Numero_Cuenta=" " || $Nombre=" " || $Ape1=" " || $Edad=" " || $Correo=" " || $Tel1=" " || $Colonia=" " || $Calle=" " || $Numero=" "){
-        }elseif (!preg_match("/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/", $Nombre)) {
-        }else{
+
+        
             $Mensaje_Alerta="a";
 
             $sql = "SELECT * FROM tb_datopersonal WHERE Id_NumCuenta='$Numero_Cuenta'";
@@ -185,9 +184,9 @@ if (isset($_POST["btnAgregar"])) {
             }
         }
 
-}
+
 ?>
--->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -204,6 +203,8 @@ if (isset($_POST["btnAgregar"])) {
     <link rel="stylesheet" href="./src/styles/index.css" />
     <link rel="stylesheet" href="./src/styles/header.css" />
     <link rel="stylesheet" href="./src/styles/headermenu.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
   </head>
   <body>
     <header>
@@ -607,6 +608,6 @@ if (isset($_POST["btnAgregar"])) {
       </div>
     </form>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./src/scripts/index.js"></script>
   </body>
 </html>
