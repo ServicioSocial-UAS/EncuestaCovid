@@ -17,9 +17,12 @@ const Colonia = getDocumentElement("Colonia");
 const Calle = getDocumentElement("Calle");
 const Numero = getDocumentElement("Numero");
 const date = getDocumentElement("date");
+const today = new Date().toISOString().split('T')[0];
+
 
 
 window.addEventListener("load", () => {
+    date.max = today;
     handleCareerStatus(Unidad_Academica.value.includes("Preparatoria"), true);
     handleGroupStatus(false)
     handleChangeAcademicUnitOptions(false);
@@ -33,7 +36,20 @@ BtnSend.addEventListener("click", (ev) => {
     validarApe_Mat();
     validarEdad();
     validarCarrera();
-    
+    validarGrupo();
+    validarCorreo();
+    validarTel1();
+    validarTel2();
+    validarColonia();
+    validarCalle();
+    validarNumero();
+
+        
+})
+
+
+Unidad_Academica.addEventListener("selected", (ev) => {
+    console.log("asdasd")
 })
 
 Tipo.addEventListener("change", (ev) => {
@@ -48,6 +64,8 @@ Unidad_Academica.addEventListener("change", (ev) => {
     const isHighSchool = ev.target.value.includes("Preparatoria")
     handleCareerStatus(isHighSchool, Tipo.value === "Estudiante")    
 })
+ 
+
 
 function handleCareerStatus(isHighSchool, isStudent){
     if(!isStudent || (isStudent && isHighSchool)){
@@ -150,7 +168,18 @@ function validarCarrera(){ //Validar input Carrera
         return
     }
 
-    sendInputAlert(NumCuenta, "Solo letras y espacios.");
+    sendInputAlert(Carrera, "Solo letras y espacios.");
+}
+
+function validarGrupo(){ //Validar input Carrera
+    const exp = /^[a-zA-ZÀ-ÖØ-Þß-öø-ÿ\s]+$/;
+    
+    if (exp.test(Grupo.value)) {
+        resetInput(Grupo);
+        return
+    }
+
+    sendInputAlert(Grupo, "Solo letras y espacios.");
 }
 
 function validarCorreo(){ //Validar input Correo
@@ -192,6 +221,41 @@ function validarTel2(){ //Validar input Telefono1
     sendInputAlert(Tel2, "Escriba correctamente su número.");
 }
 
+function validarColonia(){ //Validar input Colonia
+    const exp = /^[a-zA-ZÀ-ÖØ-Þß-öø-ÿ\s0-9]+$/;
+    
+    if (exp.test(Colonia.value)) {
+        resetInput(Colonia);
+        return
+    }
+
+    sendInputAlert(Colonia, "Solo letras y espacios.");
+}
+
+function  validarCalle(){ //Validar input Calle
+    const exp = /^[a-zA-ZÀ-ÖØ-Þß-öø-ÿ\s0-9]+$/;
+    
+    if (exp.test(Calle.value)) {
+        resetInput(Calle);
+        return
+    }
+
+    sendInputAlert(Calle, "Solo letras y espacios.");
+}
+
+function  validarNumero(){ //Validar input Numero
+    const exp = /^[0-9]+$/;
+    
+    if (exp.test(Numero.value)) {
+        if(Numero.length < 6){
+            resetInput(Numero);
+            return
+        }
+        
+    }
+
+    sendInputAlert(Numero, "Solo numeros.");
+}
 
 function resetInput(element) {
     element.setCustomValidity("");
