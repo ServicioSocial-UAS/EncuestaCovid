@@ -7,7 +7,7 @@ const Ape_Mat = getDocumentElement("Ape_Mat");
 const Sexo = getDocumentElement("Sexo");
 const Edad = getDocumentElement("Edad");
 const Tipo = getDocumentElement("Tipo");
-const Unidad_Academica = getDocumentElement("UnidadAcademica");
+const Unidad_Academica = getDocumentElement("Unidad_Academica");
 const Carrera = getDocumentElement("Carrera");
 const Grupo = getDocumentElement("Grupo");
 const Correo = getDocumentElement("Correo");
@@ -23,13 +23,13 @@ const today = new Date().toISOString().split('T')[0];
 
 window.addEventListener("load", () => {
     date.max = today;
-    handleGroupAndCareerStatus(false);
+    handleCareerStatus(Unidad_Academica.value.includes("Preparatoria"), true);
+    handleGroupStatus(false)
     handleChangeAcademicUnitOptions(false);
 })
 
 BtnSend.addEventListener("click", (ev) => {  
-    
-    ev.preventDefault();
+    console.log(Unidad_Academica.value)
     validarNumCuenta();
     validarNombres();
     validarApe_Pat();
@@ -53,32 +53,42 @@ Unidad_Academica.addEventListener("selected", (ev) => {
 })
 
 Tipo.addEventListener("change", (ev) => {
-    const studentType = ev.target.value;
-    const isPersonal = studentType === "Personal";
+    const isPersonal = ev.target.value === "Personal"
+    handleCareerStatus(Unidad_Academica.value.includes("Preparatoria"), !isPersonal)
+    handleGroupStatus(isPersonal)
+    handleChangeAcademicUnitOptions(isPersonal)
+    
+})
 
-    console.log(isPersonal)
-
-    handleGroupAndCareerStatus(isPersonal);
-    handleChangeAcademicUnitOptions(isPersonal);    
-
+Unidad_Academica.addEventListener("change", (ev) => {
+    const isHighSchool = ev.target.value.includes("Preparatoria")
+    handleCareerStatus(isHighSchool, Tipo.value === "Estudiante")    
 })
  
 
 
-function handleGroupAndCareerStatus(isPersonal){
-    if(isPersonal){
-        Carrera.disabled = true;
-        Carrera.value = "No requerido";
-        Grupo.disabled = true;
-        Grupo.value = "No requerido";
+function handleCareerStatus(isHighSchool, isStudent){
+    if(!isStudent || (isStudent && isHighSchool)){
+        Carrera.style.display = "none";
+        Carrera.value = "."
         return
     }
         
-        Carrera.disabled = false;
-        Carrera.value = "";
-        Grupo.disabled = false;
-        Grupo.value = "";
+    Carrera.style.display = "initial";
+    Carrera.value = ""
 }
+
+function handleGroupStatus(isPersonal){
+    if(isPersonal){
+        Grupo.style.display = "none";
+        Grupo.value = "."
+        return
+    }
+        
+    Grupo.style.display = "initial";
+    Grupo.value = ""
+}
+
 
 function handleChangeAcademicUnitOptions(isPersonal){
 
@@ -86,37 +96,22 @@ function handleChangeAcademicUnitOptions(isPersonal){
 
     for (let i=0; i < academicUnitOptions.length; i++){
         const option = academicUnitOptions[i];
-        
-        if(!isPersonal && option.value.includes("Personal") || isPersonal && !option.value.includes("Personal")){
-            option.disabled = true;
-            
-        }else{
 
-            option.disabled = false;
-            
-        }
-
+        option.style.display = !isPersonal && option.value.includes("Personal") ? "none" : "initial";
     }
 }
 
-
-
-
-Unidad_Academica.addEventListener("change", (ev) =>{
-
-})
-
 function validarNumCuenta(){ //Validar input Número de cuenta
     const exp = /^[0-9]+$/;
-    
+
     if (exp.test(NumCuenta.value)) {
         if (NumCuenta.value.length < 11) {
             resetInput(NumCuenta);
             return
         }
     }
-
-    sendInputAlert(NumCuenta, "Solo letras y espacios.");
+    
+    sendInputAlert(NumCuenta, "Solo numeros.");
 }
 
 function validarNombres(){ //Validar input Nombre
@@ -150,14 +145,6 @@ function validarApe_Mat(){ //Validar input Apellido Materno
     }
 
     sendInputAlert(validarApe_Mat, "Solo letras y espacios.");
-}
-
-function seleccionTipo(){
-    
-    if (Tipo == "Personal"){
-
-    }
-
 }
 
 function validarEdad(){ //Validar input Edad
@@ -270,26 +257,17 @@ function  validarNumero(){ //Validar input Numero
     sendInputAlert(Numero, "Solo numeros.");
 }
 
-
-
-
 function resetInput(element) {
-    element.style.borderColor = "black";  
+    element.setCustomValidity("");
+    element.style.borderColor = "#ced4da";  
 }
 
 function sendInputAlert(element, message) {
+    
     element.style.borderColor = "red";
     element.focus();
     element.setCustomValidity(message);    
 }
-
-
-
-
-
-
-
-
 
 
 function getDocumentElement(elementId) {

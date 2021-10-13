@@ -73,8 +73,7 @@ include "abrir_conexion.php";
                         <tr>
                             <th>NO. DE CUENTA</th>
                             <th>NOMBRE</th>
-                            <th>CARRERA</th>
-                            <th>GRUPO</th>
+                            <th>Unidad_Academica</th>
                             <th>SÍNTOMAS</th>
                             <th>DATOS</th>
                         </tr>
@@ -114,9 +113,9 @@ include "abrir_conexion.php";
                 <br>
             <?php
             
-                    $query = "SELECT tb_datopersonal.Id_NumCuenta, concat_ws(' ', tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Ape_Mat), tb_datopersonal.Carrera, tb_datopersonal.Grupo,
-                    tb_sintomas.Num_Sintomas
-                    from tb_datopersonal inner join tb_sintomas
+                    $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Unidad_Academica,
+                    tb_sintomas.Num_Sintomas 
+                    from tb_datopersonal  inner join tb_sintomas 
                     on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Personal'";
 
                     $resultado = mysqli_query($conexion, $query);
