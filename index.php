@@ -5,7 +5,6 @@ include "abrir_conexion.php";
 
 $Mensaje_Alerta = "";
 
-alert("asdads");
 if (isset($_POST["btnAgregar"])) {
 
 
@@ -190,247 +189,425 @@ if (isset($_POST["btnAgregar"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./src/styles/index.css">
-    <link rel="stylesheet" href="./src/styles/header.css">
-    <link rel="stylesheet" href="./src/styles/headermenu.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuesta COVID-19 UAS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/index.css" />
+    <link rel="stylesheet" href="./src/styles/header.css" />
+    <link rel="stylesheet" href="./src/styles/headermenu.css" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="header-container">
-            <div class="home-container">
-                <img src="./src/assets/images/logo_uas.png" alt="logo uas" />
-                <p class="university-title">UNIVERSIDAD AUTONOMA DE SINALOA</p>
-            </div>
-            <div><h1 class="page-title">Encuesta de COVID-19</h1></div>
+      <div class="header-container">
+        <div class="home-container">
+          <img src="./src/assets/images/logo_uas.png" alt="logo uas" />
+          <p class="university-title">UNIVERSIDAD AUTONOMA DE SINALOA</p>
         </div>
-        <div class="nav-menu-container">
-            <ul class="menu">
-                <li><a href="login.php" class="nav-item-link">Iniciar sesión</a></li>
-                <li><a href="login.php" class="nav-item-link">Cerrar sesión</a></li>
-            </ul>
-        </div>
-        
+        <div><h1 class="page-title">Encuesta de COVID-19</h1></div>
+      </div>
+      <div class="nav-menu-container">
+        <ul class="menu">
+          <li><a href="login.php" class="nav-item-link">Iniciar sesión</a></li>
+          <li><a href="login.php" class="nav-item-link">Cerrar sesión</a></li>
+        </ul>
+      </div>
     </header>
 
     <form id="form" action="index.php" class="frm_index" method="POST">
-
-        <div class="main-container">
-            <div style="width: 100%;">
-                <div class="form-container">
-
-                    <div class="fieldset-container">
-                        <h2 class="subtitle" id="subtitle1">Datos personales</h2>
-                            <div class="date-container">
-                                
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">No. cuenta</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Id_NumCuenta" id="Id_NumCuenta" aria-describedby="basic-addon1">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Nombre</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Nombre" id="Nombre" aria-describedby="basic-addon1">
-                                </div>
-                                  
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Apellido paterno</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Ape_Pat" id="Ape_Pat" aria-describedby="basic-addon1">
-                                </div>
-                            
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Apellido materno</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Ape_Mat" id="Ape_Mat" aria-describedby="basic-addon1">
-                                </div>
-
-                                <div><select class="form-select" aria-label="Default select example" name="Sexo" id="Sexo">
-                                    <option>Hombre</option>
-                                    <option>Mujer</option>
-                                    <option>Indefinido</option>
-                                </select></div>
-
-                                <div><div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Edad</span>
-                                    <input type="number" class="form-control" placeholder="" class="input-style" min="1" max="100" aria-label="Username" name="Edad" id="Edad" aria-describedby="basic-addon1">
-                                </div></div>
-                                
-                                <div><select class="form-select" aria-label="Default select example" name="Tipo" id="Tipo">
-                                    <option>Estudiante</option>
-                                    <option>Personal</option>
-                                </select></div>
-
-                                <div><select class="form-select" aria-label="Default select example" name="Unidad_Academica" id="UnidadAcademica">
-                                    <option>Escuela Preparatoria Valle del Carrizo</option>
-                                    <option>Escuela Preparatoria Choix</option>
-                                    <option>Escuela Preparatoria Choix. Extensión San Javier</option>
-                                    <option>Escuela Preparatoria El Fuerte</option>
-                                    <option>Escuela Preparatoria El Fuerte. Exensión Constancia</option>
-                                    <option>Escuela Preparatoria El Fuerte. Extensión 3 Garantías</option>
-                                    <option>Escuela Preparatoria San Blas</option>
-                                    <option>Escuela preparatoria San Blas. Extensión Constancia.</option>
-                                    <option>Escuela preparatoria San Blas. Extensión Higuera de Los Natochis</option>
-                                    <option>Escuela Preparatoria Ciudad Universitaria Los Mochis</option>
-                                    <option>Escuela Preparatoria Los Mochis</option>
-                                    <option>Escuela Preparatoria Los Mochis. Extensión Ahome</option>
-                                    <option>Escuela Preparatoria Juan José Ríos</option>
-                                    <option>Escuela preparatoria Ruiz Cortines</option>
-                                    <option>Escuela Preparatoria Ruiz Cortines. Extensión Cerro Cabezón</option>
-                                    <option>Escuela Preparatoria Ruiz Cortines. Extensión Bachoco</option>
-                                    <option>Escuela Preparatoria Ruiz Cortines. Extensión Batamote</option>
-                                    <option>Centro de Estudios de Idiomas Los Mochis</option>
-                                    <option>Facultad de Agricultura del Valle del Fuerte</option>
-                                    <option>Facultad de Agricultura del Valle del Carrizo</option>
-                                    <option>Facultad de Educación Física y Deporte. Extensión Los Mochis</option>
-                                    <option>Facultad de Enfermería Los Mochis</option>
-                                    <option>Facultad de Ciencias de la Educación. Extensión Los Mochis.</option>
-                                    <option>Facultad de Derecho y Ciencia Política</option>
-                                    <option>Unidad de Ciencias de la Comunicación Los Mochis</option>
-                                    <option>Unidad Académica de Criminalista, Ciencia Forense. Extensión Los Mochis</option>
-                                    <option>Facultad de Ingeniería Los Mochis</option>
-                                    <option>Facultad de Medicina. Extensión Los Mochis</option>
-                                    <option>Facultad de Trabajo Social Los Mochis</option>
-                                    <option>Facultad de Trabajo Social Los Mochis</option>
-                                    <option>Unidad Académica de Negocios - Personal</option>
-                                    <option>Servicio Social Universitario - Personal</option>
-                                    <option>Área administrativa (incluye Torre Académica) - Personal</option>
-                                </select></div>
-
-                                <div><div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Carrera</span>
-                                    <input type="text" class="form-control" placeholder="" class="input-style" aria-label="Username" name="Carrera" id="Carrera" aria-describedby="basic-addon1">
-                                </div></div>
-
-                                <div><div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Grupo</span>
-                                    <input type="text" class="form-control" placeholder="" class="input-style" min="1" max="100" aria-label="Username" name="Grupo" id="Grupo" aria-describedby="basic-addon1">
-                                </div></div>
-    
-                            </div>
-
-                    </div>
-
-                    <div class="fieldset-container">
-
-                        <h2 class="subtitle">Contacto</h2>
-
-                            <div class="contact-container">
-                                
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Correo</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Correo" id="Correo" aria-describedby="basic-addon1">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Teléfono celular</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Tel1" id="Tel1" aria-describedby="basic-addon1">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Teléfono casa</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Tel2" id="Tel2" aria-describedby="basic-addon1">
-                                </div>
-
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Colonia</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Colonia" id="Colonia" aria-describedby="basic-addon1">
-                                </div>
-                                
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Calle</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Calle" id="Calle" aria-describedby="basic-addon1">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Número</span>
-                                    <input type="text" class="form-control" placeholder="" aria-label="Username" name="Numero" id="Numero" aria-describedby="basic-addon1">
-                                </div>
-      
-                                                            
-                            </div>
-
-                            <div class="direccion">
-                                <h3 id="h3-diseasetime">Especificaciones</h3>
-                                <textarea class="textarea-style" rows="7"  maxlength="477" name="textarea-especificaciones" id="textarea-especificaciones"></textarea>
-                            </div>      
-
-                    </div>
-                    
-                    <div class="fieldset-container">
-
-                        <h2 class="subtitle">Enfermedades</h2>
-
-                        <div class="disease-container">
-                            <div class="Enfermedades">
-                                <h3>Enfermedades base</h3>
-                                <textarea class="textarea-style" rows="7" name="textarea-diseasebase" id="textarea-diseasebase" maxlength="477"></textarea>
-                            </div>
-
-                            <br>
-
-                            <div class="Enfermedades">    
-                                <h3>Tiempo de las enfermedades</h3>
-                                <textarea class="textarea-style" rows="7" name="textarea-diseasetime" id="textarea-diseasetime" maxlength="477"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fieldset-container">
-
-                        <h2 class="subtitle">Síntomas</h2>
-                        
-                        <div class="symptom-container">
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma1" value="1"> 
-                            <label class="cb-Style">Fiebre</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma2" value="1"> 
-                            <label class="cb-Style">Cansancio</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma3" value="1"> 
-                            <label class="cb-Style">Tos seca</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma4" value="1"> 
-                            <label class="cb-Style">Dolor de cadera</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma5" value="1"> 
-                            <label class="cb-Style">Malestar en el cuerpo</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma6" value="1"> 
-                            <label class="cb-Style">Dolor de garganta</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma7" value="1"> 
-                            <label class="cb-Style">Congestión nasal</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma8" value="1"> 
-                            <label class="cb-Style">Perdida del olfato o sabor</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma9" value="1">
-                            <label class="cb-Style">Nauceas o Vomito</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma10" value="1">
-                            <label class="cb-Style">Diarrea</label></div>
-
-                            <div class="combobox-div"><input type="checkbox" name="Sintoma11" value="1">
-                            <label class="cb-Style">Falta de aire </label></div>
-                                
-                            <div class="combobox-div"><label class="cb-Style">Tiempo</label><input type="date" name="date" id="date"></div>
-                        </div>
-                    </div>
+      <div class="main-container">
+        <div style="width: 100%">
+          <div class="form-container">
+            <div class="fieldset-container">
+              <h2 class="subtitle" id="subtitle1">Datos personales</h2>
+              <div class="date-container">
+                <div class="label-style"><label>Número de cuenta: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Id_NumCuenta"
+                    id="Id_NumCuenta"
+                  />
                 </div>
+
+                <div class="label-style"><label>Nombre: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Nombre"
+                    id="Nombre"
+                    value=""
+                  />
+                </div>
+
+                <div class="label-style"><label>Apellido paterno: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Ape_Pat"
+                    id="Ape_Pat"
+                    value=""
+                  />
+                </div>
+
+                <div class="label-style"><label>Apellido materno: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Ape_Mat"
+                    id="Ape_Mat"
+                    value=""
+                  />
+                </div>
+
+                <div class="label-style"><label>Sexo:</label></div>
+                <div class="input-container">
+                  <select
+                    class="input-style"
+                    class="label-style"
+                    class="input-date"
+                    name="Sexo"
+                    id="Sexo"
+                    value=""
+                  >
+                    <option class="input-style">Hombre</option>
+                    <option class="input-style">Mujer</option>
+                    <option class="input-style">Indefinido</option>
+                  </select>
+                </div>
+
+                <div class="label-style"><label>Edad: </label></div>
+                <div class="input-container">
+                  <input
+                    type="number"
+                    class="input-style"
+                    min="1"
+                    max="100"
+                    name="Edad"
+                    id="Edad"
+                    value=""
+                  />
+                </div>
+
+                <div class="label-style"><label>Tipo:</label></div>
+                <div class="input-container">
+                  <select
+                    class="input-style"
+                    class="label-style"
+                    class="input-date"
+                    name="Tipo"
+                    id="Tipo"
+                    value=""
+                  >
+                    <option class="input-style">Estudiante</option>
+                    <option class="input-style">Personal</option>
+                  </select>
+                </div>
+
+                <div class="label-style"><label>Unidad académica:</label></div>
+                <div class="input-container">
+                  <select
+                    class="input-date"
+                    name="Unidad_Academica"
+                    id="Unidad_Academica"
+                    value=""
+                    style="max-width: 240px"
+                  >
+                    <option>Escuela Preparatoria Valle del Carrizo</option>
+                    <option>Escuela Preparatoria Choix</option>
+                    <option>
+                      Escuela Preparatoria Choix. Extensión San Javier
+                    </option>
+                    <option>Escuela Preparatoria El Fuerte</option>
+                    <option>
+                      Escuela Preparatoria El Fuerte. Exensión Constancia
+                    </option>
+                    <option>
+                      Escuela Preparatoria El Fuerte. Extensión 3 Garantías
+                    </option>
+                    <option>Escuela Preparatoria San Blas</option>
+                    <option>
+                      Escuela preparatoria San Blas. Extensión Constancia.
+                    </option>
+                    <option>
+                      Escuela preparatoria San Blas. Extensión Higuera de Los
+                      Natochis
+                    </option>
+                    <option>
+                      Escuela Preparatoria Ciudad Universitaria Los Mochis
+                    </option>
+                    <option>Escuela Preparatoria Los Mochis</option>
+                    <option>
+                      Escuela Preparatoria Los Mochis. Extensión Ahome
+                    </option>
+                    <option>Escuela Preparatoria Juan José Ríos</option>
+                    <option>Escuela preparatoria Ruiz Cortines</option>
+                    <option>
+                      Escuela Preparatoria Ruiz Cortines. Extensión Cerro
+                      Cabezón
+                    </option>
+                    <option>
+                      Escuela Preparatoria Ruiz Cortines. Extensión Bachoco
+                    </option>
+                    <option>
+                      Escuela Preparatoria Ruiz Cortines. Extensión Batamote
+                    </option>
+                    <option>Centro de Estudios de Idiomas Los Mochis</option>
+                    <option>
+                      Facultad de Agricultura del Valle del Fuerte
+                    </option>
+                    <option>
+                      Facultad de Agricultura del Valle del Carrizo
+                    </option>
+                    <option>
+                      Facultad de Educación Física y Deporte. Extensión Los
+                      Mochis
+                    </option>
+                    <option>Facultad de Enfermería Los Mochis</option>
+                    <option>
+                      Facultad de Ciencias de la Educación. Extensión Los
+                      Mochis.
+                    </option>
+                    <option>Facultad de Derecho y Ciencia Política</option>
+                    <option>
+                      Unidad de Ciencias de la Comunicación Los Mochis
+                    </option>
+                    <option>
+                      Unidad Académica de Criminalista, Ciencia Forense.
+                      Extensión Los Mochis
+                    </option>
+                    <option>Facultad de Ingeniería Los Mochis</option>
+                    <option>Facultad de Medicina. Extensión Los Mochis</option>
+                    <option>Facultad de Trabajo Social Los Mochis</option>
+                    <option>Facultad de Trabajo Social Los Mochis</option>
+                    <option>Unidad Académica de Negocios</option>
+                    <option>Servicio Social Universitario</option>
+                    <option>
+                      Área administrativa (incluye Torre Académica)
+                    </option>
+                  </select>
+                </div>
+
+                <div class="label-style"><label>Carrera: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Carrera"
+                    id="Carrera"
+                    value=""
+                  />
+                </div>
+
+                <div class="label-style"><label>Grupo: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Grupo"
+                    id="Grupo"
+                    value=""
+                  />
+                </div>
+              </div>
             </div>
-            <div class="button-container"><button name="btnAgregar" id="btn-send">Enviar</button></div>
+
+            <div class="fieldset-container">
+              <h2 class="subtitle">Contacto</h2>
+
+              <div class="contact-container">
+                <div class="label-style"><label>Correo: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Correo"
+                    id="Correo"
+                  />
+                </div>
+
+                <div class="label-style"><label>Teléfono celular: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Tel1"
+                    id="Tel1"
+                  />
+                </div>
+
+                <div class="label-style"><label>Teléfono Casa:</label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Tel2"
+                    id="Tel2"
+                  />
+                </div>
+
+                <hr class="divider" />
+
+                <div class="label-style"><label>Colonia: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Colonia"
+                    id="Colonia"
+                  />
+                </div>
+
+                <div class="label-style"><label>Calle: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Calle"
+                    id="Calle"
+                  />
+                </div>
+
+                <div class="label-style"><label>Número: </label></div>
+                <div class="input-container">
+                  <input
+                    type="text"
+                    class="input-style"
+                    name="Numero"
+                    id="Numero"
+                    style="margin-bottom: -24px"
+                  />
+                </div>
+              </div>
+
+              <div class="direccion">
+                <h3 id="h3-diseasetime">Especificaciones</h3>
+                <textarea
+                  class="textarea-style"
+                  rows="7"
+                  maxlength="477"
+                  name="textarea-especificaciones"
+                  id="textarea-especificaciones"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="fieldset-container">
+              <h2 class="subtitle">Enfermedades</h2>
+
+              <div class="disease-container">
+                <div class="Enfermedades">
+                  <h3>Enfermedades base</h3>
+                  <textarea
+                    class="textarea-style"
+                    rows="7"
+                    name="textarea-diseasebase"
+                    id="textarea-diseasebase"
+                    maxlength="477"
+                  ></textarea>
+                </div>
+
+                <br />
+
+                <div class="Enfermedades">
+                  <h3>Tiempo de las enfermedades</h3>
+                  <textarea
+                    class="textarea-style"
+                    rows="7"
+                    name="textarea-diseasetime"
+                    id="textarea-diseasetime"
+                    maxlength="477"
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="fieldset-container">
+              <h2 class="subtitle">Síntomas</h2>
+
+              <div class="symptom-container">
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma1" value="1" />
+                  <label class="cb-Style">Fiebre</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma2" value="1" />
+                  <label class="cb-Style">Cansancio</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma3" value="1" />
+                  <label class="cb-Style">Tos seca</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma4" value="1" />
+                  <label class="cb-Style">Dolor de cadera</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma5" value="1" />
+                  <label class="cb-Style">Malestar en el cuerpo</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma6" value="1" />
+                  <label class="cb-Style">Dolor de garganta</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma7" value="1" />
+                  <label class="cb-Style">Congestión nasal</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma8" value="1" />
+                  <label class="cb-Style">Perdida del olfato o sabor</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma9" value="1" />
+                  <label class="cb-Style">Nauceas o Vomito</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma10" value="1" />
+                  <label class="cb-Style">Diarrea</label>
+                </div>
+
+                <div class="combobox-div">
+                  <input type="checkbox" name="Sintoma11" value="1" />
+                  <label class="cb-Style">Falta de aire </label>
+                </div>
+
+                <div class="combobox-div">
+                  <label class="cb-Style">Tiempo</label
+                  ><input type="date" name="date" id="date" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="button-container">
+          <button name="btnAgregar" id="btn-send">Enviar</button>
+        </div>
+      </div>
     </form>
+
     <script src="./src/scripts/index.js"></script>
-</body>
+  </body>
 </html>
