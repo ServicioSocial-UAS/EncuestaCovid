@@ -56,7 +56,7 @@ include "abrir_conexion.php";
                 
                 $empieza = ($pagina-1) * $por_pagina;
 
-                $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Carrera, tb_datopersonal.Grupo,
+                $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Carrera, tb_datopersonal.Grupo,
                 tb_sintomas.Num_Sintomas 
                 from tb_datopersonal  inner join tb_sintomas 
                 on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Personal' LIMIT $empieza, $por_pagina;";
@@ -88,7 +88,7 @@ include "abrir_conexion.php";
                     <tr>
 
                         <td><?php echo $fila['Id_NumCuenta']; ?></td>
-                        <td><?php echo $fila['Nombre']; ?></td>
+                        <td><?php echo $fila['Nombre'];echo " "; echo $fila['Ape_Pat']; ?></td>
                         <td><?php echo $fila['Carrera']; ?></td>
                         <td><?php echo $fila['Grupo']; ?></td>
                         <td><?php echo $fila['Num_Sintomas']; ?></td>

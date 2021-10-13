@@ -423,7 +423,7 @@ if (isset($_POST["btnAgregar"])) {
                             <div class="combobox-div"><input type="checkbox" name="Sintoma11" value="1">
                             <label class="cb-Style">Falta de aire </label></div>
                                 
-                            <div class="combobox-div"><label class="cb-Style">Tiempo</label><input type="date" name="date" id="date"></div>
+                            <div class="combobox-div"><label class="cb-Style">Tiempo</label><input max="" type="date" name="date" id="date"></div>
                         </div>
                     </div>
                 </div>
