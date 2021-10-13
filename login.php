@@ -1,3 +1,39 @@
+<?php
+  include "./abrir_conexion.php";
+  include "./Alert/alert.php";
+
+  if (isset($_POST["btnlogin"])){
+
+    $user = $_POST["user"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT Usuario FROM tb_Usuario WHERE Usuario='$user'";
+
+    $resultA = mysqli_query($conexion, $sql);
+
+    $filasA = mysqli_num_rows($resultA);
+
+    if (($filasA == 0)) {
+      alert("El usuario no existe");
+    }else{
+      $sql = "SELECT Contraseña FROM tb_Usuario WHERE Usuario='$user'";
+
+      $resultA = mysqli_query($conexion, $sql);
+
+      $filasA = mysqli_num_rows($resultA);
+
+      if (($filasA == 0)){
+        alert("La Contraseña es incorrecta");
+      }else{
+        include "./alumnos.php";
+      }
+
+    }
+  }
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -94,19 +130,21 @@
 
           <div class="form-floating">
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="floatingInput"
               placeholder=" "
+              name="user"
             />
             <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating">
             <input
-              type="email"
+              type="password"
               class="form-control"
               id="floatingInput"
               placeholder=" "
+              name="password"
             />
             <label for="floatingInput">Password</label>
           </div>
