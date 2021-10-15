@@ -2,7 +2,7 @@
   include "./abrir_conexion.php";
   include "./Alert/alert.php";
 
-  if (isset($_POST["btnlogin"])){
+  if (isset($_POST["btnLogin"])){
 
     $user = $_POST["user"];
     $password = $_POST["password"];
@@ -20,12 +20,15 @@
 
       $resultA = mysqli_query($conexion, $sql);
 
-      $filasA = mysqli_num_rows($resultA);
+      $fila = mysqli_fetch_assoc($resultA);
 
-      if (($filasA == 0)){
-        alert("La Contraseña es incorrecta");
-      }else{
+      $Contraseña = $fila["Contraseña"];
+
+      if (($Contraseña == $password )){
         include "./alumnos.php";
+      }else{
+        
+        alert("La Contraseña es incorrecta");
       }
 
     }
@@ -122,7 +125,7 @@
       <div class="background-login-overlay"></div>
 
       <section class="login-container">
-        <form class="form-login-container" action="index.php" method="POST">
+        <form class="form-login-container" action="login.php" method="POST">
           <span
             class="bi-people-fill"
             style="font-size: 4rem; color: #374a57"
