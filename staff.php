@@ -16,7 +16,7 @@ include "abrir_conexion.php";
 
     <link rel="stylesheet" href="./src/styles/header.css" />
     <link rel="stylesheet" href="./src/styles/sideBarMenu.css" />
-    <link rel="stylesheet" href="./src/styles/empleados.css" />
+    <link rel="stylesheet" href="./src/styles/table.css" />
 
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
