@@ -159,7 +159,6 @@ include "Alert/alert.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/styles/index.css">
-    <link rel="stylesheet" href="./src/styles/headermenu.css">
     <link rel="stylesheet" href="./src/styles/header.css">
     <link rel="stylesheet" href="./src/styles/vermas.css">
     
@@ -175,8 +174,8 @@ include "Alert/alert.php";
         </div>
         <div class="login-logout-container">
             <ul class="menu">
-                    <li class="alumno-empleado"><a href="alumnos.php" class="login-logout" >Estudiantes</a></li>
-                    <li class="alumno-empleado"><a href="empleados.php" class="login-logout" >Personal</a></li>
+                    <li class="alumno-empleado"><a href="students.php" class="login-logout" >Estudiantes</a></li>
+                    <li class="alumno-empleado"><a href="staff.php" class="login-logout" >Personal</a></li>
                     <li><a href="login.php" class="login-logout">Iniciar sesión</a></li>
                     <li><a href="login.php" class="login-logout">Cerrar sesión</a></li>
             </ul>
@@ -324,5 +323,7 @@ include "Alert/alert.php";
                 
             </div>
         </div>
+        
+    <script src="./src/scripts/TokenSession.js"></script>
 </body>
 </html>
