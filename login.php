@@ -54,7 +54,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Encuesta COVID-19 UAS - Login</title>
+    <title>Encuesta COVID-19 UAS - Inicio de sesión</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -116,7 +117,10 @@
 
     <div id="sidebar-menu" class="sidebar-menu sidebar-menu-close">
       <div class="sidebar-menu-content">
-        <span id="sidebar-menu-close-button" class="bi-arrow-left-short sidebar-menu-close-icon"></span>
+        <span
+          id="sidebar-menu-close-button"
+          class="bi-arrow-left-short sidebar-menu-close-icon"
+        ></span>
 
         <div class="menu-navigation">
           <a class="menu-nav-link" href="./index.html"
