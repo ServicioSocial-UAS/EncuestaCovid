@@ -159,7 +159,6 @@ include "Alert/alert.php";
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/styles/index.css">
-    <link rel="stylesheet" href="./src/styles/headermenu.css">
     <link rel="stylesheet" href="./src/styles/header.css">
     <link rel="stylesheet" href="./src/styles/vermas.css">
     
@@ -324,5 +323,7 @@ include "Alert/alert.php";
                 
             </div>
         </div>
+        
+    <script src="./src/scripts/TokenSession.js"></script>
 </body>
 </html>

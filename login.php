@@ -1,3 +1,53 @@
+<?php
+  include "./abrir_conexion.php";
+  include "./Alert/alert.php";
+
+  echo '<script> if (sessionStorage.getItem("AuthToken")){
+    location.href = "./empleados.php"
+}
+     </script>';
+  
+  if (isset($_POST["btnLogin"])){
+
+    $user = $_POST["user"];
+    $password = $_POST["password"];
+
+    $sql = "SELECT Usuario FROM tb_Usuario WHERE Usuario='$user'";
+
+    $resultA = mysqli_query($conexion, $sql);
+
+    $filasA = mysqli_num_rows($resultA);
+
+    if (($filasA == 0)) {
+      alert("El usuario no existe");
+    }else{
+      $sql = "SELECT Contraseña FROM tb_Usuario WHERE Usuario='$user'";
+
+      $resultA = mysqli_query($conexion, $sql);
+
+      $fila = mysqli_fetch_assoc($resultA);
+
+      $Contraseña = $fila["Contraseña"];
+
+      if (($Contraseña == $password )){
+          echo '<script>
+            sessionStorage.setItem("AuthToken", "IsAuthenticated");
+          </script>';
+          echo '<script>
+          location.href = "./empleados.php"
+          </script>';
+      }else{
+        
+          alert("La Contraseña es incorrecta");
+      }
+
+    }
+  }
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -90,7 +140,7 @@
       <div class="background-login-overlay"></div>
 
       <section class="login-container">
-        <form class="form-login-container" action="index.php" method="POST">
+        <form class="form-login-container" action="login.php" method="POST">
           <span
             class="bi-people-fill"
             style="font-size: 4rem; color: #374a57"
@@ -98,19 +148,21 @@
 
           <div class="form-floating">
             <input
-              type="email"
+              type="text"
               class="form-control"
               id="floatingInput"
               placeholder=" "
+              name="user"
             />
             <label for="floatingInput">Username</label>
           </div>
           <div class="form-floating">
             <input
-              type="email"
+              type="password"
               class="form-control"
               id="floatingInput"
               placeholder=" "
+              name="password"
             />
             <label for="floatingInput">Password</label>
           </div>
