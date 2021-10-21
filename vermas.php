@@ -175,8 +175,8 @@ include "Alert/alert.php";
         </div>
         <div class="login-logout-container">
             <ul class="menu">
-                    <li class="alumno-empleado"><a href="alumnos.php" class="login-logout" >Estudiantes</a></li>
-                    <li class="alumno-empleado"><a href="empleados.php" class="login-logout" >Personal</a></li>
+                    <li class="alumno-empleado"><a href="students.php" class="login-logout" >Estudiantes</a></li>
+                    <li class="alumno-empleado"><a href="staff.php" class="login-logout" >Personal</a></li>
                     <li><a href="login.php" class="login-logout">Iniciar sesión</a></li>
                     <li><a href="login.php" class="login-logout">Cerrar sesión</a></li>
             </ul>
