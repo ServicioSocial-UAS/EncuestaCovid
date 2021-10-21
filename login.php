@@ -2,6 +2,11 @@
   include "./abrir_conexion.php";
   include "./Alert/alert.php";
 
+  echo '<script> if (sessionStorage.getItem("AuthToken")){
+    location.href = "./empleados.php"
+}
+     </script>';
+  
   if (isset($_POST["btnLogin"])){
 
     $user = $_POST["user"];
@@ -25,14 +30,20 @@
       $Contraseña = $fila["Contraseña"];
 
       if (($Contraseña == $password )){
-        include "./alumnos.php";
+          echo '<script>
+            sessionStorage.setItem("AuthToken", "IsAuthenticated");
+          </script>';
+          echo '<script>
+          location.href = "./empleados.php"
+          </script>';
       }else{
         
-        alert("La Contraseña es incorrecta");
+          alert("La Contraseña es incorrecta");
       }
 
     }
   }
+
 
 
 ?>
