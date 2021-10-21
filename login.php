@@ -34,7 +34,7 @@
             sessionStorage.setItem("AuthToken", "IsAuthenticated");
           </script>';
           echo '<script>
-          location.href = "./empleados.php"
+          location.href = "./staff.php"
           </script>';
       }else{
         
