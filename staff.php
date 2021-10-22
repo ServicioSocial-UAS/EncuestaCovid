@@ -117,7 +117,7 @@ include "abrir_conexion.php";
                         $VerMas = "Ver más";
                         ?>
 
-                        <td class="td-link"><?php echo "<a href='vermas.php?NoCuenta=$Id_NumCuenta'>$VerMas</a>"; ?></td>
+                        <td class="td-link"><?php echo "<a href='seemore?NoCuenta=$Id_NumCuenta'>$VerMas</a>"; ?></td>
                     </tr>
                 <?php
                 };
@@ -143,13 +143,13 @@ include "abrir_conexion.php";
 
             $total_paginas = ceil($total_registrados / $por_pagina);
 
-            echo "<center><a href='staff.php?pagina=1'>" . 'Primera' . "</a>";
+            echo "<center><a href='staff?pagina=1'>" . 'Primera' . "</a>";
 
             for ($i = 1; $i <= $total_paginas; $i++) {
-                echo "<a href='staff.php?pagina=" . $i . "'>" . $i . "</a>";
+                echo "<a href='staff?pagina=" . $i . "'>" . $i . "</a>";
             }
 
-            echo "<a href='staff.php?pagina=$total_paginas'>" . 'Última' . "</a><center>";
+            echo "<a href='staff?pagina=$total_paginas'>" . 'Última' . "</a><center>";
 
 
             ?>

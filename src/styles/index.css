@@ -1,188 +1,193 @@
-
 .main-container {
-    width: 100%;
-    margin-top: 180px;
+  position: relative;
+  display: flex;
+  height: calc(100vh - 120px - 40px - 8px - 8px);
+  justify-content: center;
+  width: 100%;
+  padding-top: 32px;
+  overflow: auto;
 }
 
-.main-container > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.main-container::-webkit-scrollbar {
+  width: 12px;
 }
 
-.divider{
-    margin: 72px 0px;
+.main-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  width: 12px;
 }
 
-.subtitle{
-    font-size: 1.5rem;
-    color: #6591AE;
+.main-container::-webkit-scrollbar-thumb {
+  background-color: #374a57;
 }
-#subtitle1{
-    margin-bottom: 8%;
-}
-
-.contact-container{
-    margin-top: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.label-style{
-    margin-bottom: 2%;
-    font-size: 20px;
-}
-
-
-
-#h3-diseasetime{
-    margin-bottom: 8px;
-    margin-left: 40px;
-}
-
-.fieldset-direccion{
-    margin-bottom: 5%;
-}
-
-
 
 .form-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
-    max-width: 1120px;
-    gap: 32px;
-}
-
-
-textarea{
-    resize: none;
-}
-
-.disease-container{
-    padding: 52px;
-}
-
-#textarea-diseasebase{
-    margin-top: 5px;
-}
-
-#textarea-diseasetime{
-    margin-bottom: 20px;
-}
-
-.textarea-style{
-    font-size: 1rem;
-}
-
-fieldset{
-    margin-left: 16px;
-    margin-top: 16px;
-    margin-right: 16px;
-}
-
-.symptom-container{
-    padding: 5%;
-}
-
-.cb-Style, legend{
-    font-size: 1.5rem;
-}
-
-
-
-.combobox-div{
-    margin-bottom: 6.5px;
-}
-
-.date-container{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-#date{
-    margin-left: 20px;
-}
-
-.input-style{
-    width: 100%;
-    padding: 8px 16px !important;
-    max-width: 240px;
-    font-size: 1rem;
-    border: none;
-    color: #5a5e5f;
-    border-bottom: 1px solid #7B848A;
-    padding: 4px 8px;
-    margin-left: 4px;
-}
-
-.input-style:focus{
-    outline: none;
-    border-bottom: 2px solid #6591AE;
-}
-
-#input-age{
-    margin-left: 16px;
-}
-
-
-.radiobutton-date{
-
-    margin-left: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  max-width: 1024px;
+  gap: 32px;
 }
 
 .fieldset-container {
-    width: calc(100% - 24px - 24px);
-    height: auto;
-    box-shadow: 0px 8px 8px #7B848A;
-    background: #fff;
-    transition: all 0.4s ease-in-out;
-    padding: 48px;
-    
+  width: calc(100%);
+  height: auto;
+  box-shadow: 0px 8px 8px #7b848a;
+  background: #fff;
+  transition: all 0.4s ease-in-out;
+  padding: 48px;
+  border-radius: 4px;
 }
 
-.fieldset-container:hover {
-    background: #FDFFFF;
+.divider {
+  margin: 72px 0px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #6591ae;
+}
+#subtitle1 {
+  margin-bottom: 8%;
+}
+
+.contact-container {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label-style {
+  margin-bottom: 2%;
+  font-size: 20px;
+}
+
+#h3-diseasetime {
+  margin-bottom: 8px;
+  margin-left: 40px;
+}
+
+.fieldset-direccion {
+  margin-bottom: 5%;
+}
+
+textarea {
+  resize: none;
+}
+
+.disease-container {
+  margin-top: 20px;
+}
+
+#textarea-diseasebase {
+  margin-top: 5px;
+}
+
+#textarea-diseasetime {
+  margin-bottom: 20px;
+}
+
+.textarea-style {
+  font-size: 1rem;
+}
+
+fieldset {
+  margin-left: 16px;
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+.symptom-container {
+  margin-top: 24px;
+}
+
+.cb-Style,
+legend {
+  font-size: 1.5rem;
+}
+
+.combobox-div {
+  margin-bottom: 6.5px;
+}
+
+.date-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-style {
+  width: 100%;
+  padding: 8px 16px !important;
+  max-width: 240px;
+  font-size: 1rem;
+  border: none;
+  color: #5a5e5f;
+  border-bottom: 1px solid #7b848a;
+  padding: 4px 8px;
+  margin-left: 4px;
+}
+
+.input-style:focus {
+  outline: none;
+  border-bottom: 2px solid #6591ae;
+}
+
+#input-age {
+  margin-left: 16px;
+}
+
+.radiobutton-date {
+  margin-left: 8px;
 }
 
 .button-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-button {
-    width: 100%;
-    max-width: 240px;
-    margin-bottom: 180px;
-    background-color: #FFA212;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 16px;
-    border: none;
-    box-shadow: 0px 4px 4px #7B848A;
-    border-radius: 8px;
-    cursor: pointer;
-    opacity: 1;
-    transition: all 0.4s ease-in-out;
+.form-button {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 56px;
+  background-color: #ffa212;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 12px 16px;
+  border: none;
+  box-shadow: 0px 4px 4px #7b848a;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
 }
 
-button:hover {
-    opacity: 0.8;
-    box-shadow: 0px 8px 8px #7B848A;
+.form-button:hover {
+  opacity: 0.8;
+  box-shadow: 0px 8px 8px #7b848a;
 }
 
 .title-university {
-    font-size: 20px;
-    color: #fff;
+  font-size: 20px;
+  color: #fff;
 }
 
-@media (max-width: 1024px){
-    .form-container{
-        grid-template-columns: repeat(1, 1fr);
-        margin: 0px 40px;
+@media (max-width: 1024px) {
+  .form-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media (max-width: 540px) {
+    .fieldset-container {
+      border-radius: 0px;
+      box-shadow: 0px 4px 4px #7b848a;
     }
+
+    .main-container::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
