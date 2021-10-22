@@ -8,25 +8,24 @@ if (isset($_POST["btnAgregar"])) {
 
 
   $Numero_Cuenta = $_POST["Id_NumCuenta"];
-  $Nombre = $_POST["Nombre"];
-  $Ape1 = $_POST["Ape_Pat"];
+  $Nom = trim($_POST["Nombre"]);
+  $Ape_Pa = trim($_POST["Ape_Pat"]);
   $Sexo = $_POST["Sexo"];
   $Edad = $_POST["Edad"];
   $Tipo = $_POST["Tipo"];
   $Unidad_Academica = $_POST["Unidad_Academica"];
-  $Carrera = $_POST["Carrera"];
-  $Grupo = $_POST["Grupo"];
-  $Correo = $_POST["Correo"];
+  $Carrera = trim($_POST["Carrera"]);
+  $Grupo = trim($_POST["Grupo"]);
+  $Correo = trim($_POST["Correo"]);
   $Tel1 = $_POST["Tel1"];
   $Tel2 = $_POST["Tel2"];
-  $Colonia = $_POST["Colonia"];
-  $Calle = $_POST["Calle"];
+  $Colonia = trim($_POST["Colonia"]);
+  $Calle = trim($_POST["Calle"]);
   $Numero = $_POST["Numero"];
-  $Especificaciones = $_POST["textarea-especificaciones"];
+  $Especificaciones = trim($_POST["textarea-especificaciones"]);
 
-
-
-  $Mensaje_Alerta = "a";
+  $Nombre = ucwords($Nom);
+  $Ape1 = ucwords($Ape_Pa);
 
   $sql = "SELECT * FROM tb_datopersonal WHERE Id_NumCuenta='$Numero_Cuenta'";
 
@@ -36,10 +35,9 @@ if (isset($_POST["btnAgregar"])) {
 
   if (($filasA == 0)) {
 
-
-
     if (isset($_POST["Ape_Mat"])) {
-      $Ap2 = $_POST["Ape_Mat"];
+      $Ape_Ma = trim($_POST["Ape_Mat"]);
+      $Ape2 = ucwords($Ape_Ma);
     } else {
       $Ap2 = ' ';
     }

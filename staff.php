@@ -73,14 +73,14 @@ include "abrir_conexion.php";
         $pagina = 1;
     }
 
-    $por_pagina = 2;
+    $por_pagina = 100;
 
     $empieza = ($pagina - 1) * $por_pagina;
 
-    $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Unidad_Academica, tb_datopersonal.Grupo,
+    $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Ape_Mat, tb_datopersonal.Unidad_Academica, tb_datopersonal.Grupo,
                 tb_sintomas.Num_Sintomas 
                 from tb_datopersonal  inner join tb_sintomas 
-                on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Personal' LIMIT $empieza, $por_pagina;";
+                on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Personal' order by tb_datopersonal.Ape_Pat LIMIT $empieza, $por_pagina;";
 
     $resultado = mysqli_query($conexion, $query);
 
@@ -107,6 +107,8 @@ include "abrir_conexion.php";
 
                         <td><?php echo $fila['Id_NumCuenta']; ?></td>
                         <td><?php echo $fila['Ape_Pat'];
+                            echo " ";
+                            echo $fila['Ape_Mat'];
                             echo " ";
                             echo $fila['Nombre']; ?></td>
                         <td><?php echo $fila['Unidad_Academica']; ?></td>
@@ -135,7 +137,7 @@ include "abrir_conexion.php";
             $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Unidad_Academica,
                     tb_sintomas.Num_Sintomas 
                     from tb_datopersonal  inner join tb_sintomas 
-                    on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Personal'";
+                    on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Personal' order by tb_datopersonal.Ape_Pat";
 
             $resultado = mysqli_query($conexion, $query);
 
@@ -157,6 +159,8 @@ include "abrir_conexion.php";
     </main>
 
     <script src="./src/scripts/sideBarMenu.js"></script>
+    
+    <script src="./src/scripts/TokenSession.js"></script>
 </body>
 
 </html>
