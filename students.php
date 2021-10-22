@@ -113,7 +113,7 @@
                         $NumCuenta = $fila['Id_NumCuenta'];
                         ?>
 
-                        <td class="td-link"><?php echo "<a  href='vermas.php?NoCuenta=" . $NumCuenta . "'>" . 'Ver más' . "</a>"; ?></td>
+                        <td class="td-link"><?php echo "<a  href='seemore?NoCuenta=" . $NumCuenta . "'>" . 'Ver más' . "</a>"; ?></td>
                     </tr>
                 <?php
                 };
@@ -143,7 +143,7 @@
                     $NumCuenta = $fila['Id_NumCuenta'];
                     ?>
 
-                    <div class="div-link"><?php echo "<a href='vermas.php?NoCuenta=" . $NumCuenta . "'>" . 'Ver más' . "</a>"; ?></div>
+                    <div class="div-link"><?php echo "<a href='seemore?NoCuenta=" . $NumCuenta . "'>" . 'Ver más' . "</a>"; ?></div>
             <?php
             };
             ?>
@@ -168,13 +168,13 @@
 
             $total_paginas = ceil($total_registrados / $por_pagina);
 
-            echo "<center><a href='students.php?pagina=1'>" . 'Primera' . "</a>";
+            echo "<center><a href='students?pagina=1'>" . 'Primera' . "</a>";
 
             for ($i = 1; $i <= $total_paginas; $i++) {
-                echo "<a href='students.php?pagina=" . $i . "'>" . $i . "</a>";
+                echo "<a href='students?pagina=" . $i . "'>" . $i . "</a>";
             }
 
-            echo "<a href='students.php?pagina=$total_paginas'>" . 'Última' . "</a><center>";
+            echo "<a href='students?pagina=$total_paginas'>" . 'Última' . "</a><center>";
 
 
             ?>
