@@ -3,7 +3,7 @@
   include "./Alert/alert.php";
 
   echo '<script> if (sessionStorage.getItem("AuthToken")){
-    location.href = "./empleados.php"
+    location.href = "./staff.php"
 }
      </script>';
   
