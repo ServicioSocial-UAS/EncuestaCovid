@@ -9,26 +9,25 @@ if (isset($_POST["btnAgregar"])) {
 
 
         $Numero_Cuenta = $_POST["Id_NumCuenta"];
-        $Nombre = $_POST["Nombre"];
-        $Ape1 = $_POST["Ape_Pat"];
+        $Nom = trim($_POST["Nombre"]);
+        $Ape_Pa = trim($_POST["Ape_Pat"]);
         $Sexo = $_POST["Sexo"];
         $Edad = $_POST["Edad"];
         $Tipo = $_POST["Tipo"];
         $Unidad_Academica = $_POST["Unidad_Academica"];
-        $Carrera = $_POST["Carrera"];
-        $Grupo = $_POST["Grupo"];
-        $Correo = $_POST["Correo"];
+        $Carrera = trim($_POST["Carrera"]);
+        $Grupo = trim($_POST["Grupo"]);
+        $Correo = trim($_POST["Correo"]);
         $Tel1 = $_POST["Tel1"];
         $Tel2 = $_POST["Tel2"];
-        $Colonia = $_POST["Colonia"];
-        $Calle = $_POST["Calle"];
+        $Colonia = trim($_POST["Colonia"]);
+        $Calle = trim($_POST["Calle"]);
         $Numero = $_POST["Numero"];
-        $Especificaciones = $_POST["textarea-especificaciones"];
+        $Especificaciones = trim($_POST["textarea-especificaciones"]);
 
-
+        $Nombre = ucwords($Nom);
+        $Ape1 = ucwords($Ape_Pa);
         
-            $Mensaje_Alerta="a";
-
             $sql = "SELECT * FROM tb_datopersonal WHERE Id_NumCuenta='$Numero_Cuenta'";
 
             $resultA = mysqli_query($conexion, $sql);
@@ -37,11 +36,9 @@ if (isset($_POST["btnAgregar"])) {
 
             if (($filasA == 0)) {
 
-                
-
                 if (isset($_POST["Ape_Mat"])) {
-                    $Ap2 = $_POST["Ape_Mat"];
-
+                    $Ape_Ma = trim($_POST["Ape_Mat"]);
+                    $Ape2 = ucwords($Ape_Ma);
                 } else {
                     $Ap2 = ' ';
                 }
@@ -49,10 +46,9 @@ if (isset($_POST["btnAgregar"])) {
                 
 
                 $sql = "INSERT INTO tb_datopersonal (Id_NumCuenta, Nombre, Ape_Pat, Ape_Mat, Sexo, Edad, Tipo, Unidad_Academica, Carrera, Grupo) 
-                VALUES ('$Numero_Cuenta', '$Nombre', '$Ape1', '$Ap2', '$Sexo', '$Edad', '$Tipo', '$Unidad_Academica', '$Carrera', '$Grupo')";
+                VALUES ('$Numero_Cuenta', '$Nombre', '$Ape1', '$Ape2', '$Sexo', '$Edad', '$Tipo', '$Unidad_Academica', '$Carrera', '$Grupo')";
                 if ($conexion->query($sql) == TRUE) {
-                    alert("Se hizo1");
-
+                    
                 } else {
                     alert("No se hizo1");
                 }
@@ -62,7 +58,7 @@ if (isset($_POST["btnAgregar"])) {
                 $sql = "INSERT INTO tb_contacto (Id_Contacto, Id_NumCuenta, Correo, Tel1, Tel2, Colonia, Calle, Numero, Especificaciones) 
                 VALUES ('$Id_Contacto','$Numero_Cuenta', '$Correo', '$Tel1', '$Tel2', '$Colonia', '$Calle', '$Numero', '$Especificaciones')";
                 if ($conexion->query($sql) == TRUE) {
-                    alert("Se hizo2");
+                   
 
                 } else {
                     alert("No se hizo2");
@@ -77,8 +73,7 @@ if (isset($_POST["btnAgregar"])) {
                 $sql = "INSERT INTO tb_enfermedades (Id_Enfermedades, Id_NumCuenta, Enfermedades_Base, Tiempo_Enfermedades) 
                 VALUES ('$Id_Enfermedades','$Numero_Cuenta', '$Enfermedades_Base', '$Tiempo_Enfermedades')";
                 if ($conexion->query($sql) == TRUE) {
-                    alert("Se hizo3");
-
+                  
                 } else {
                     alert("No se hizo3");
                 }
@@ -172,7 +167,7 @@ if (isset($_POST["btnAgregar"])) {
                 '$cb_Dolor', '$cb_Congestion', '$cb_Perdida', '$cb_nauceas_vomito', '$cb_Diarrea', '$cb_Falta', '$Tiempo', '$Num_Sintomas')";
 
                 if ($conexion->query($sql) == TRUE) {
-                    alert("Se hizo4");
+                    
                     mysqli_close($conexion);
 
                 } else {

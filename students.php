@@ -67,14 +67,14 @@
         $pagina = 1;
     }
 
-    $por_pagina = 2;
+    $por_pagina = 10;
 
     $empieza = ($pagina - 1) * $por_pagina;
 
-    $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Carrera, tb_datopersonal.Grupo,
+    $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Ape_Mat, tb_datopersonal.Carrera, tb_datopersonal.Grupo,
                 tb_sintomas.Num_Sintomas 
                 from tb_datopersonal  inner join tb_sintomas 
-                on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Estudiante' LIMIT $empieza, $por_pagina;";
+                on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Estudiante' order by tb_datopersonal.Ape_Pat LIMIT  $empieza, $por_pagina;";
 
     $resultado = mysqli_query($conexion, $query);
 
@@ -103,9 +103,11 @@
                         <td><?php echo $fila['Id_NumCuenta']; ?></td>
                         <td><?php echo $fila['Ape_Pat'];
                             echo " ";
+                            echo $fila['Ape_Mat'];
+                            echo " ";
                             echo $fila['Nombre']; ?></td>
                         <td><?php echo $fila['Carrera']; ?></td>
-                        <td><?php echo $fila['Grupo']; ?>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</td>
+                        <td><?php echo $fila['Grupo']; ?></td>
                         <td><?php echo $fila['Num_Sintomas']; ?></td>
                         <?php
                         $NumCuenta = $fila['Id_NumCuenta'];
@@ -135,7 +137,7 @@
                     <div><?php echo $fila['Id_NumCuenta']; ?></div>
                     <div><?php echo $fila['Nombre']; ?></div>
                     <div><?php echo $fila['Carrera']; ?></div>
-                    <div><?php echo $fila['Grupo']; ?>ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div>
+                    <div><?php echo $fila['Grupo']; ?></div>
                     <div><?php echo $fila['Num_Sintomas']; ?></div>
                     <?php
                     $NumCuenta = $fila['Id_NumCuenta'];
@@ -158,7 +160,7 @@
             $query = "SELECT tb_datopersonal.Id_NumCuenta, tb_datopersonal.Nombre, tb_datopersonal.Ape_Pat, tb_datopersonal.Carrera, tb_datopersonal.Grupo,
                     tb_sintomas.Num_Sintomas
                     from tb_datopersonal inner join tb_sintomas
-                    on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Estudiante'";
+                    on tb_datopersonal.Id_NumCuenta = tb_sintomas.Id_NumCuenta where tb_datopersonal.Tipo = 'Estudiante' order by tb_datopersonal.Ape_Pat";
 
             $resultado = mysqli_query($conexion, $query);
 
@@ -180,6 +182,7 @@
     </main>
 
     <script src="./src/scripts/sideBarMenu.js"></script>
+    <script src="./src/scripts/TokenSession.js"></script>
 </body>
 
 </html>
